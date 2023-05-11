@@ -1,0 +1,34 @@
+Consigna SUBTE:
+La empresa  “UTN FRA Robotics” ganó la licitación de un proyecto, y deberá
+Implementar un sistema que permita al usuario saber a qué estación de subte está
+llegando, aparte  el sistema muestra las estaciones que faltan hasta llegar a destino,
+para ello debemos utilizar 4 LEDs y el display de 7 segmentos. Esta vez el buzzer
+deberá emitir un sonido diferente cada vez que se llegue a una estación.
+El sistema deberá arrancar apagado, luego de presionar el botón empezará y hará lo
+pedido.
+
+
+1 - Parte :(se entrega hoy)
+     Deberá mostrar los leds por estación y el número de estación en el display 7
+segmentos. 
+2 - parte : deberá sonar una vez que llegue a cada estación con el buzzer.
+
+3- parte: el botón de encender el sistema.
+
+*Nota: deberán utilizar funciones que tengan mensajes que se muestran por el
+monitor Serial.
+Para realizar el proyecto deberán usar mínimamente:
+
+1 ARDUINO. 
+1 Display 7 segmentos. 
+4 LEDS. 
+1 BUZZER (Piezo). 
+1 BOTÓN 
+RESISTENCIAS NECESARIAS PARA CADA COMPONENTE. 
+
+Realizar el circuito en TinkerCad para simular el semáforo y desarrollar el código fuente para
+su funcionamiento correcto. 
+**Nota: El desarrollo del proyecto tiene que estar documentado usando un MarkDown
+EJEMPLO,  donde tiene que informar todo lo referente al proyecto, como por ejemplo la
+consigna, la  finalidad y el desarrollo explicativo de como funciona tanto el circuito y el
+codigo fuente.
