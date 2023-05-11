@@ -116,4 +116,4 @@ void mostrar_string(String cadena) {
 --------------------------------------------------------------
 
 ### Link del proyecto 😎
-- [link_tinkercad](https://www.tinkercad.com/things/7clMeTWGXCi-copy-of-dojo-semaforo/editel?sharecode=4gYBmjR2fASmddVSYBk9wpw6-SGAI-amK9CuunKc7-8)
+- [link_tinkercad](https://www.tinkercad.com/things/7clMeTWGXCi)
