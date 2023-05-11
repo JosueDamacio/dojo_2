@@ -1,0 +1,153 @@
+// C++ code
+//7 SEGMENTOS
+#define arriba 12 //A
+#define	arriba_derecha 13 //B
+#define abajo_derecha 7 //C
+#define abajo 8 //D
+#define abajo_izquierda 9 //E
+#define arriba_izquierda 11 //F
+#define centro 10 //G
+//ESTACIONES
+#define primera 6
+#define segunda 5
+#define tercera 4
+#define ultima 3
+#define buzzer 2
+#define boton 1
+int bandera = LOW;
+int i = 4;
+
+void setup()
+{
+  pinMode(arriba_derecha, OUTPUT);
+  pinMode(arriba, OUTPUT);
+  pinMode(arriba_izquierda, OUTPUT);
+  pinMode(centro, OUTPUT);
+  pinMode(abajo_izquierda, OUTPUT);
+  pinMode(abajo, OUTPUT);
+  pinMode(abajo_derecha, OUTPUT);
+  pinMode(primera, OUTPUT);
+  pinMode(segunda, OUTPUT);
+  pinMode(tercera, OUTPUT);
+  pinMode(ultima, OUTPUT);
+  pinMode(boton,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if(digitalRead(boton)== LOW){
+    	bandera = HIGH;
+  }
+  if(bandera == HIGH){
+      i--;
+      eleccion_de_numero(i);
+      if(i == 0)
+        i = 4;
+  }
+  
+}
+
+void prende_led(int led){  	
+  digitalWrite(led, HIGH);
+}
+void espera(){
+  delay(1000);
+}
+void apaga_led(int led){
+  digitalWrite(led, LOW);
+}
+void mostrar_string(String cadena) {
+  Serial.println(cadena);
+}
+
+void Prende_numero_cero(){
+  	prende_led(arriba);
+    prende_led(arriba_derecha);
+    prende_led(abajo_derecha);
+    prende_led(abajo);
+    prende_led(abajo_izquierda);
+    prende_led(arriba_izquierda);
+}
+void Apaga_numero_cero(){
+  	apaga_led(arriba);
+  	apaga_led(arriba_derecha);
+  	apaga_led(abajo_derecha);
+  	apaga_led(abajo);
+  	apaga_led(abajo_izquierda);
+  	apaga_led(arriba_izquierda);
+}
+
+
+void Prende_numero_uno(){
+    prende_led(abajo_derecha); 
+}
+
+void Prende_numero_dos(){
+    prende_led(abajo_izquierda);
+}
+void Apaga_numero_dos(){
+    apaga_led(arriba);
+    apaga_led(centro);
+    apaga_led(abajo_izquierda);
+    apaga_led(abajo); 
+}
+
+void Prende_numero_tres(){
+    prende_led(arriba);
+    prende_led(arriba_derecha);
+    prende_led(centro);
+    prende_led(abajo_derecha);
+    prende_led(abajo);
+ 
+ 
+}
+void Apaga_numero_tres(){
+ 
+    apaga_led(abajo_derecha);
+}
+
+void sonido(int tiempo, int potencia, int suena, int espera){
+  int contador = 0;
+  while (contador != (tiempo / (suena+espera)) ){
+  		tone(buzzer, potencia, suena);
+  		delay(espera);
+  		contador++;
+  }
+}
+void eleccion_de_numero(int i){
+    switch (i)
+    {
+    case 0:
+        Prende_numero_cero();
+      	prende_led(ultima);
+      	sonido(1500,500,500,1000);
+      	apaga_led(ultima);
+        Apaga_numero_cero();
+      	mostrar_string("Constitucion");
+        break;
+    case 1:
+        Prende_numero_uno();
+      	prende_led(tercera);
+      	sonido(1500,400,500,1000);
+      	apaga_led(tercera);
+      	mostrar_string("San Juan");
+        break;
+    case 2:
+        Prende_numero_dos();
+      	prende_led(segunda);
+      	sonido(1500,200,500,1000);
+      	apaga_led(segunda);
+        Apaga_numero_dos();
+      	mostrar_string("Independencia");
+        break;
+    case 3:
+        Prende_numero_tres();
+      	prende_led(primera);
+      	sonido(1500,600,500,1000);
+      	apaga_led(primera);
+        Apaga_numero_tres();
+      	mostrar_string("Moreno");
+        break;
+    }
+}
